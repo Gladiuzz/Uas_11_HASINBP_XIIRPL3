@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d4e86cad-3750-4544-b441-d1816853dd4a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     inventaris.`id_inventaris` AS inventaris_id_inventaris,
+     inventaris.`nama` AS inventaris_nama,
+     inventaris.`kondisi` AS inventaris_kondisi,
+     inventaris.`keterangan` AS inventaris_keterangan,
+     inventaris.`jumlah` AS inventaris_jumlah,
+     inventaris.`id_jenis` AS inventaris_id_jenis,
+     inventaris.`tanggal_register` AS inventaris_tanggal_register,
+     inventaris.`id_ruang` AS inventaris_id_ruang,
+     inventaris.`kode_inventaris` AS inventaris_kode_inventaris,
+     inventaris.`id_petugas` AS inventaris_id_petugas
+FROM
+     `inventaris` inventaris]]>
+	</queryString>
+	<field name="inventaris_id_inventaris" class="java.lang.Integer"/>
+	<field name="inventaris_nama" class="java.lang.String"/>
+	<field name="inventaris_kondisi" class="java.lang.String"/>
+	<field name="inventaris_keterangan" class="java.lang.String"/>
+	<field name="inventaris_jumlah" class="java.lang.Integer"/>
+	<field name="inventaris_id_jenis" class="java.lang.Integer"/>
+	<field name="inventaris_tanggal_register" class="java.sql.Date"/>
+	<field name="inventaris_id_ruang" class="java.lang.Integer"/>
+	<field name="inventaris_kode_inventaris" class="java.lang.Integer"/>
+	<field name="inventaris_id_petugas" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="aca6b577-9dc7-482c-9e26-6a10e79e5cff"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Inventaris]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="8779565e-dd99-4554-ab80-e2ce6a5a4c76"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="55" height="15" uuid="ad71ff09-dd01-4816-8ffa-29084dbcb864"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="55" y="19" width="55" height="15" uuid="359f102b-e5dd-43cf-8f2a-75b289815654"/>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="110" y="19" width="55" height="15" uuid="80575630-7241-4e75-b872-3ea93fb91ef7"/>
+				<text><![CDATA[kondisi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="165" y="19" width="55" height="15" uuid="5ecfb152-c1ec-415a-a7c7-4d114826bbdb"/>
+				<text><![CDATA[keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="220" y="19" width="55" height="15" uuid="7c9e4c00-5ec2-47ee-9db9-7d9c9f32062b"/>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="275" y="19" width="55" height="15" uuid="dc726a33-2188-429e-b711-6068dc2ba6c2"/>
+				<text><![CDATA[id_jenis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="330" y="19" width="55" height="15" uuid="6c18d888-8479-4020-a78c-fb3b89fc3e9c"/>
+				<text><![CDATA[tanggal_register]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="385" y="19" width="55" height="15" uuid="6d5dd35d-1e16-4689-8196-ab192b54fc33"/>
+				<text><![CDATA[id_ruang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="440" y="19" width="55" height="15" uuid="604874ad-50b9-4524-bd63-b08ab1c17fe2"/>
+				<text><![CDATA[kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="495" y="19" width="55" height="15" uuid="4ada9d0d-c46c-4da6-a4d9-6184d2bd165d"/>
+				<text><![CDATA[petugas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="55dcac70-ddcc-45af-93ea-1287d601c692"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="55" height="15" uuid="f47c5f60-4dd3-40f4-aa0a-08e08d554879"/>
+				<textFieldExpression><![CDATA[$F{inventaris_id_inventaris}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="55" y="0" width="55" height="15" uuid="79e1177d-7bf3-4e6b-a028-a0f307b2aba8"/>
+				<textFieldExpression><![CDATA[$F{inventaris_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="110" y="0" width="55" height="15" uuid="db0c5d54-e765-4bdf-8fbe-db9a34527804"/>
+				<textFieldExpression><![CDATA[$F{inventaris_kondisi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="165" y="0" width="55" height="15" uuid="b8d76adc-6311-4d67-936f-e8862eba23cc"/>
+				<textFieldExpression><![CDATA[$F{inventaris_keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="220" y="0" width="55" height="15" uuid="7eb4038f-1e32-4710-a12d-b5d28cb89a3b"/>
+				<textFieldExpression><![CDATA[$F{inventaris_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="275" y="0" width="55" height="15" uuid="50f9da70-e9e2-4d84-b3b5-227fb7839216"/>
+				<textFieldExpression><![CDATA[$F{inventaris_id_jenis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="330" y="0" width="55" height="15" uuid="986be1af-9c54-4004-8d28-4badf0fb6349"/>
+				<textFieldExpression><![CDATA[$F{inventaris_tanggal_register}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="385" y="0" width="55" height="15" uuid="fa834954-c11c-4c67-b228-671345319d89"/>
+				<textFieldExpression><![CDATA[$F{inventaris_id_ruang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="440" y="0" width="55" height="15" uuid="f3d45dd6-cd7a-4d21-85e6-9ddb43b31aaa"/>
+				<textFieldExpression><![CDATA[$F{inventaris_kode_inventaris}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="495" y="0" width="55" height="15" uuid="104ff3ef-5b8d-4480-90ae-9f82ecfe68e2"/>
+				<textFieldExpression><![CDATA[$F{inventaris_id_petugas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="6a4392a8-3e2a-4836-a729-502faca6cdb3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="9ed3c0ea-9b1c-48ab-b32e-657ec6b487d4"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="0ceaf7f3-4c28-47ec-baf3-9ca2898ed3ff"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="95841924-2b2e-405d-bdfd-8b2707faabfd"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

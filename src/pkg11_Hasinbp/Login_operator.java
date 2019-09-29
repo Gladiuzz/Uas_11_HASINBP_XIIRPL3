@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author SMKN4
  */
-public class Login_pegawai extends javax.swing.JFrame {
+public class Login_operator extends javax.swing.JFrame {
 
     /**
      * Creates new form Login_petugas
@@ -25,7 +25,7 @@ public class Login_pegawai extends javax.swing.JFrame {
     Statement stmt;
     int baris;
    
-    public Login_pegawai() {
+    public Login_operator() {
         initComponents();
        
     }
@@ -62,7 +62,7 @@ public class Login_pegawai extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Login Inventaris");
+        jLabel1.setText("Login Pengembalian");
 
         txt_username.setText("Username");
         txt_username.addActionListener(new java.awt.event.ActionListener() {
@@ -157,21 +157,27 @@ public class Login_pegawai extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_pegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_operator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_pegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_operator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_pegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_operator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login_pegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_operator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_pegawai().setVisible(true);
+                new Login_operator().setVisible(true);
             }
         });
     }
@@ -192,14 +198,18 @@ public class Login_pegawai extends javax.swing.JFrame {
                     
                 
                 if (rs.getString("id_level").equals("1")) {
-                    JOptionPane.showMessageDialog(null, "Login berhasil untuk masuk ke inventaris");
-                    Inventaris_menu menu = new Inventaris_menu();
-                    menu.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Login berhasil sebagai admin");
+                    pengembalian1 wat = new pengembalian1();
+                    wat.setVisible(true);
                     this.dispose();
                 }
 
                 else if (rs.getString("id_level").equals("2")){
-                    JOptionPane.showMessageDialog(null, "inventaris hanya untuk admin");
+                    JOptionPane.showMessageDialog(null, "Login berhasil sebagai operator");
+                    pengembalian1 wat = new pengembalian1();
+                    wat.setVisible(true);
+                    this.dispose();
+                    
                 }
             }
             

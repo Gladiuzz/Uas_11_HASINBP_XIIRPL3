@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SMKN4
  */
-public class Data_peminjaman extends javax.swing.JFrame {
+public class peminjaman extends javax.swing.JFrame {
 
     /**
      * Creates new form Data_peminjaman
@@ -26,7 +26,7 @@ public class Data_peminjaman extends javax.swing.JFrame {
     ResultSet rs;
     Statement stmt;
     int baris;
-    public Data_peminjaman() {
+    public peminjaman() {
         initComponents();
         viewPeminjaman();
     }
@@ -43,16 +43,13 @@ public class Data_peminjaman extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         wat = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        nama_user = new javax.swing.JLabel();
-        nama_user1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_peminjaman = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,24 +62,6 @@ public class Data_peminjaman extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Data Peminjaman");
 
-        nama_user.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        nama_user.setForeground(new java.awt.Color(255, 255, 255));
-        nama_user.setText("Nama");
-        nama_user.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nama_userMouseClicked(evt);
-            }
-        });
-
-        nama_user1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        nama_user1.setForeground(new java.awt.Color(255, 255, 255));
-        nama_user1.setText("level");
-        nama_user1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nama_user1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout watLayout = new javax.swing.GroupLayout(wat);
         wat.setLayout(watLayout);
         watLayout.setHorizontalGroup(
@@ -90,23 +69,14 @@ public class Data_peminjaman extends javax.swing.JFrame {
             .addGroup(watLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 706, Short.MAX_VALUE)
-                .addGroup(watLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nama_user)
-                    .addComponent(nama_user1))
-                .addGap(116, 116, 116))
+                .addContainerGap(852, Short.MAX_VALUE))
         );
         watLayout.setVerticalGroup(
             watLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(watLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(watLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(watLayout.createSequentialGroup()
-                        .addComponent(nama_user)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nama_user1))
-                    .addComponent(jLabel1))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jPanel1.add(wat, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 1060, 90));
@@ -114,59 +84,32 @@ public class Data_peminjaman extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(102, 102, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test2.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test1.png"))); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test3.png"))); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test4.png"))); // NOI18N
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test5.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 808, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 902));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 90));
 
         tbl_peminjaman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,9 +122,38 @@ public class Data_peminjaman extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_peminjaman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_peminjamanMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_peminjaman);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 1000, 480));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 1100, 480));
+
+        jButton1.setText("Tambah");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 110, -1, -1));
+
+        jButton3.setText("Refresh");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 70, -1));
+
+        jButton4.setText("Edit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 110, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,13 +163,13 @@ public class Data_peminjaman extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nama_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nama_userMouseClicked
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(this, "Apakah anda ingin logout ?");
         if (confirm == JOptionPane.YES_OPTION) {
@@ -205,11 +177,30 @@ public class Data_peminjaman extends javax.swing.JFrame {
             menu.setVisible(true);
             this.dispose();
         }
-    }//GEN-LAST:event_nama_userMouseClicked
+    }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void nama_user1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nama_user1MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nama_user1MouseClicked
+        Manage_dataPeminjaman form = new Manage_dataPeminjaman(this,true,"tambah","");
+        form.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        viewPeminjaman();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tbl_peminjamanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_peminjamanMouseClicked
+        // TODO add your handling code here:
+                baris = tbl_peminjaman.getSelectedRow();
+    }//GEN-LAST:event_tbl_peminjamanMouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+                String id_peminjaman = tbl_peminjaman.getValueAt(baris, 1).toString();
+        Manage_dataPeminjaman tambahData = new Manage_dataPeminjaman(this,true,"Edit",id_peminjaman);
+        tambahData.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,36 +219,34 @@ public class Data_peminjaman extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Data_peminjaman().setVisible(true);
+                new peminjaman().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel nama_user;
-    private javax.swing.JLabel nama_user1;
     private javax.swing.JTable tbl_peminjaman;
     private javax.swing.JPanel wat;
     // End of variables declaration//GEN-END:variables
@@ -270,7 +259,7 @@ public class Data_peminjaman extends javax.swing.JFrame {
         
         try {
             stmt = connection.createStatement();
-            String query = "SELECT * FROM peminjaman INNER JOIN pegawai ON peminjaman.id_pegawai = pegawai.id_pegawai";
+            String query = "SELECT * FROM peminjaman INNER JOIN pegawai ON peminjaman.id_pegawai = pegawai.id_pegawai WHERE status_peminjaman = 'dipakai'";
             rs = stmt.executeQuery(query);
             int no = 1;
             while (rs.next()) {

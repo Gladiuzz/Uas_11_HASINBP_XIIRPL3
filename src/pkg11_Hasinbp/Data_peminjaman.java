@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SMKN4
  */
-public class Data_inventaris extends javax.swing.JFrame {
+public class Data_peminjaman extends javax.swing.JFrame {
 
     /**
      * Creates new form Data_peminjaman
@@ -26,9 +26,9 @@ public class Data_inventaris extends javax.swing.JFrame {
     ResultSet rs;
     Statement stmt;
     int baris;
-    public Data_inventaris() {
+    public Data_peminjaman() {
         initComponents();
-        viewInventaris();
+        viewPeminjaman();
     }
 
     /**
@@ -46,16 +46,16 @@ public class Data_inventaris extends javax.swing.JFrame {
         nama_user = new javax.swing.JLabel();
         nama_user1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        logout = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_invetaris = new javax.swing.JTable();
+        tbl_peminjaman = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +66,7 @@ public class Data_inventaris extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Data Inventaris");
+        jLabel1.setText("Data Peminjaman");
 
         nama_user.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nama_user.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,7 +93,7 @@ public class Data_inventaris extends javax.swing.JFrame {
             .addGroup(watLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 730, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 706, Short.MAX_VALUE)
                 .addGroup(watLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nama_user)
                     .addComponent(nama_user1))
@@ -117,28 +117,43 @@ public class Data_inventaris extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(102, 102, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test2.png"))); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test5.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test1.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test2.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test3.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test4.png"))); // NOI18N
-
-        logout.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        logout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/test5.png"))); // NOI18N
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
+                jLabel5MouseClicked(evt);
             }
         });
 
@@ -146,37 +161,36 @@ public class Data_inventaris extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 636, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(158, 158, 158))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 730));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 902));
 
-        tbl_invetaris.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_peminjaman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -187,12 +201,7 @@ public class Data_inventaris extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbl_invetaris.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_invetarisMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tbl_invetaris);
+        jScrollPane1.setViewportView(tbl_peminjaman);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 1000, 480));
 
@@ -202,23 +211,23 @@ public class Data_inventaris extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, 70, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 140, 70, -1));
 
-        jButton2.setText("Tambah");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("Report");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 140, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 690, -1, -1));
 
-        jButton3.setText("Edit");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("Refresh");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 140, 70, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 690, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,45 +245,60 @@ public class Data_inventaris extends javax.swing.JFrame {
 
     private void nama_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nama_userMouseClicked
         // TODO add your handling code here:
-
+        int confirm = JOptionPane.showConfirmDialog(this, "Apakah anda ingin logout ?");
+        if (confirm == JOptionPane.YES_OPTION) {
+            Menu menu = new Menu();
+            menu.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_nama_userMouseClicked
 
     private void nama_user1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nama_user1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_nama_user1MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        // TODO add your handling code here:
-        Manage_data tambah = new Manage_data(this,true,"tambah","");
-        tambah.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        String id_inventaris = tbl_invetaris.getValueAt(baris, 1).toString();
-        Manage_data tambahData = new Manage_data(this,true,"Edit",id_inventaris);
-        tambahData.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(this, "Apakah anda ingin logout ?");
-        if (confirm == JOptionPane.YES_OPTION) {
-            Menu menu = new Menu();
-            menu.setVisible(true);
-            this.dispose();
-        }        
-    }//GEN-LAST:event_logoutMouseClicked
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         delete();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void tbl_invetarisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_invetarisMouseClicked
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        baris = tbl_invetaris.getSelectedRow();
-    }//GEN-LAST:event_tbl_invetarisMouseClicked
+        viewPeminjaman();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Data_peminjaman peminjaman = new Data_peminjaman();
+        peminjaman.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        Data_pengembalian pengembalian = new Data_pengembalian();
+        pengembalian.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        Data_inventaris inventaris = new Data_inventaris();
+        inventaris.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        Data_pegawai pegawai = new Data_pegawai();
+        pegawai.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -293,69 +317,63 @@ public class Data_inventaris extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Data_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Data_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Data_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Data_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Data_peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Data_inventaris().setVisible(true);
+                new Data_peminjaman().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel logout;
     private javax.swing.JLabel nama_user;
     private javax.swing.JLabel nama_user1;
-    private javax.swing.JTable tbl_invetaris;
+    private javax.swing.JTable tbl_peminjaman;
     private javax.swing.JPanel wat;
     // End of variables declaration//GEN-END:variables
 
-    public void viewInventaris(){
+
+    public void viewPeminjaman(){
        
-        String[] kolom = {"NO","ID" ,"nama","kondisi","keterangan","ruang","jumlah","jenis","tanggal"};
+        String[] kolom = {"NO","id_peminjaman","tanggal_peminjaman","status_peminjaman","id_pegawai"};
         dtm = new DefaultTableModel(null, kolom);
         
         try {
             stmt = connection.createStatement();
-            String query = "SELECT id_inventaris,nama,jumlah,jenis.nama_jenis,kondisi,ruang.nama_ruang,tanggal_register,jenis.keterangan FROM inventaris "
-                    + "INNER JOIN jenis ON inventaris.id_jenis = jenis.id_jenis "
-                    + "INNER JOIN ruang ON inventaris.id_ruang = ruang.id_ruang";
+            String query = "SELECT * FROM peminjaman INNER JOIN pegawai ON peminjaman.id_pegawai = pegawai.id_pegawai WHERE status_peminjaman = 'dipakai'";
             rs = stmt.executeQuery(query);
             int no = 1;
             while (rs.next()) {
-                String id_inventaris = rs.getString("id_inventaris");
-                String nama = rs.getString("nama");
-                String jumlah = rs.getString("jumlah");
-                String jenis = rs.getString("nama_jenis");
-                String kondisi = rs.getString("kondisi");
-                String ruang = rs.getString("nama_ruang");
-                String tanggal = rs.getString("tanggal_register");
-                String keterangan = rs.getString("keterangan");
-                dtm.addRow(new String[] {no+"", id_inventaris , nama, kondisi, keterangan, ruang ,jumlah, jenis, tanggal});
+                String id_peminjaman = rs.getString("id_peminjaman");
+                String tanggal_peminjaman = rs.getString("tanggal_pinjam");
+                String status = rs.getString("status_peminjaman");
+                String pegawai = rs.getString("nama_pegawai");
+                dtm.addRow(new String[] {no+"",id_peminjaman,tanggal_peminjaman,status,pegawai});
                 no++;
                 
-                tbl_invetaris.setModel(dtm);
+                tbl_peminjaman.setModel(dtm);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -363,10 +381,10 @@ public class Data_inventaris extends javax.swing.JFrame {
     }
     
     public void delete(){
-        String pilihan = tbl_invetaris.getValueAt(baris, 1).toString();
+        String pilihan = tbl_peminjaman.getValueAt(baris, 1).toString();
         try {
             Statement stmt = connection.createStatement();
-            String query = "DELETE FROM inventaris WHERE id_inventaris = "+pilihan+";";
+            String query = "DELETE FROM peminjaman WHERE id_peminjaman = "+pilihan+";";
             int berhasil = stmt.executeUpdate(query);
             if (berhasil == 1) {
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
@@ -379,10 +397,8 @@ public class Data_inventaris extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        viewInventaris();        
+        viewPeminjaman();        
     }
-    
-    
 
 
 }

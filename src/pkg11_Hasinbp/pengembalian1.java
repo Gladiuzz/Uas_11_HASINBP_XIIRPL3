@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SMKN4
  */
-public class peminjaman extends javax.swing.JFrame {
+public class pengembalian1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Data_peminjaman
@@ -26,9 +26,9 @@ public class peminjaman extends javax.swing.JFrame {
     ResultSet rs;
     Statement stmt;
     int baris;
-    public peminjaman() {
+    public pengembalian1() {
         initComponents();
-        viewPeminjaman();
+        viewPengembalian();
     }
 
     /**
@@ -48,8 +48,10 @@ public class peminjaman extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_peminjaman = new javax.swing.JTable();
+        tbl_pengembalian = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +62,7 @@ public class peminjaman extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Data Peminjaman");
+        jLabel1.setText("Data Pengembalian");
 
         nama_user.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nama_user.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +89,7 @@ public class peminjaman extends javax.swing.JFrame {
             .addGroup(watLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 706, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 689, Short.MAX_VALUE)
                 .addGroup(watLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nama_user)
                     .addComponent(nama_user1))
@@ -138,7 +140,7 @@ public class peminjaman extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 90));
 
-        tbl_peminjaman.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_pengembalian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -149,12 +151,38 @@ public class peminjaman extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbl_peminjaman);
+        tbl_pengembalian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_pengembalianMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbl_pengembalian);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 1100, 480));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 1110, 480));
 
-        jButton1.setText("Tambah");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 110, -1, -1));
+        jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 140, 70, -1));
+
+        jButton3.setText("Refresh");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 70, -1));
+
+        jButton4.setText("Edit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 140, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,7 +192,7 @@ public class peminjaman extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
         );
 
         pack();
@@ -184,15 +212,37 @@ public class peminjaman extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nama_user1MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        delete();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(this, "Apakah anda ingin logout ?");
+                int confirm = JOptionPane.showConfirmDialog(this, "Apakah anda ingin logout ?");
         if (confirm == JOptionPane.YES_OPTION) {
             Menu menu = new Menu();
             menu.setVisible(true);
             this.dispose();
-        }
+        }        
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        viewPengembalian();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String id_pengembalian = tbl_pengembalian.getValueAt(baris, 1).toString();
+        Manage_dataPeminjaman tambahData = new Manage_dataPeminjaman(this,true,"Edit",id_pengembalian);
+        tambahData.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tbl_pengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_pengembalianMouseClicked
+        // TODO add your handling code here:
+                        baris = tbl_pengembalian.getSelectedRow();
+    }//GEN-LAST:event_tbl_pengembalianMouseClicked
 
     /**
      * @param args the command line arguments
@@ -211,27 +261,31 @@ public class peminjaman extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pengembalian1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pengembalian1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pengembalian1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(peminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pengembalian1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new peminjaman().setVisible(true);
+                new pengembalian1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -239,30 +293,30 @@ public class peminjaman extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nama_user;
     private javax.swing.JLabel nama_user1;
-    private javax.swing.JTable tbl_peminjaman;
+    private javax.swing.JTable tbl_pengembalian;
     private javax.swing.JPanel wat;
     // End of variables declaration//GEN-END:variables
 
-
-    public void viewPeminjaman(){
+    public void viewPengembalian(){
        
-        String[] kolom = {"NO","id_peminjaman","tanggal_peminjaman","status_peminjaman","id_pegawai"};
+        String[] kolom = {"NO","id_peminjaman","tanggal_peminjaman","tanggal_kembali","status_peminjaman","id_pegawai"};
         dtm = new DefaultTableModel(null, kolom);
         
         try {
             stmt = connection.createStatement();
-            String query = "SELECT * FROM peminjaman INNER JOIN pegawai ON peminjaman.id_pegawai = pegawai.id_pegawai";
+            String query = "SELECT * FROM peminjaman WHERE status_peminjaman = 'dikembalikan'";
             rs = stmt.executeQuery(query);
             int no = 1;
             while (rs.next()) {
                 String id_peminjaman = rs.getString("id_peminjaman");
                 String tanggal_peminjaman = rs.getString("tanggal_pinjam");
-                String status = rs.getString("status_peminjaman");
-                String pegawai = rs.getString("nama_pegawai");
-                dtm.addRow(new String[] {no+"",id_peminjaman,tanggal_peminjaman,status,pegawai});
+                String tanggal_kembali = rs.getString("tanggal_kembali");
+                String status_peminjaman = rs.getString("status_peminjaman");
+                String pegawai = rs.getString("id_pegawai");
+                dtm.addRow(new String[] {no+"",id_peminjaman,tanggal_peminjaman,tanggal_kembali,status_peminjaman,pegawai});
                 no++;
                 
-                tbl_peminjaman.setModel(dtm);
+                tbl_pengembalian.setModel(dtm);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -270,10 +324,10 @@ public class peminjaman extends javax.swing.JFrame {
     }
     
     public void delete(){
-        String pilihan = tbl_peminjaman.getValueAt(baris, 0).toString();
+        String pilihan = tbl_pengembalian.getValueAt(baris, 0).toString();
         try {
             Statement stmt = connection.createStatement();
-            String query = "DELETE FROM inventaris WHERE nama = "+pilihan+";";
+            String query = "DELETE FROM penminjaman WHERE id_peminjaman = "+pilihan+";";
             int berhasil = stmt.executeUpdate(query);
             if (berhasil == 1) {
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
@@ -285,9 +339,11 @@ public class peminjaman extends javax.swing.JFrame {
             
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        viewPeminjaman();        
+        }        
     }
+
+
+
 
 
 }

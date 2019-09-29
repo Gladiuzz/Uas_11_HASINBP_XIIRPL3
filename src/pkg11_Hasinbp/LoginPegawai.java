@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author SMKN4
  */
-public class Login_petugas extends javax.swing.JFrame {
+public class LoginPegawai extends javax.swing.JFrame {
 
     /**
      * Creates new form Login_petugas
@@ -25,7 +25,7 @@ public class Login_petugas extends javax.swing.JFrame {
     Statement stmt;
     int baris;
    
-    public Login_petugas() {
+    public LoginPegawai() {
         initComponents();
        
     }
@@ -43,9 +43,9 @@ public class Login_petugas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txt_username = new javax.swing.JTextField();
+        txt_id = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        txt_password = new javax.swing.JPasswordField();
+        txt_username = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,10 +64,10 @@ public class Login_petugas extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Login Pegawai");
 
-        txt_username.setText("Username");
-        txt_username.addActionListener(new java.awt.event.ActionListener() {
+        txt_id.setText("id_pegawai");
+        txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usernameActionPerformed(evt);
+                txt_idActionPerformed(evt);
             }
         });
 
@@ -79,38 +79,43 @@ public class Login_petugas extends javax.swing.JFrame {
             }
         });
 
-        txt_password.setText("123321");
+        txt_username.setText("nama pegawai");
+        txt_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usernameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addContainerGap(375, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(221, 221, 221))
-            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(221, 221, 221))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(53, 53, 53)))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addGap(151, 151, 151)
+                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(82, 82, 82))
         );
@@ -136,6 +141,10 @@ public class Login_petugas extends javax.swing.JFrame {
         login();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idActionPerformed
+
     private void txt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usernameActionPerformed
@@ -157,35 +166,36 @@ public class Login_petugas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_petugas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_petugas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_petugas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login_petugas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_petugas().setVisible(true);
+                new LoginPegawai().setVisible(true);
             }
         });
     }
     
     public void login(){
-        String nama_pegawai = txt_username.getText();
-        String id_pegawai = String.valueOf(txt_password.getPassword());
+        String id_pegawai = txt_id.getText().trim();
+        String nama_pegawai = txt_username.getText().trim();
         
         try{
-            String sql = "SELECT * FROM pegawai WHERE nama_pegawai = '"+nama_pegawai+"' AND password = '"+id_pegawai+"' ";
+            String sql = "SELECT * FROM pegawai WHERE nama_pegawai = '"+nama_pegawai+"' AND id_pegawai = '"+id_pegawai+"' ";
             Statement stmt = connection.createStatement();
             rs = stmt.executeQuery(sql);
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Login berhasil untuk masuk ke inventaris");
-                    Inventaris_menu menu = new Inventaris_menu();
+                JOptionPane.showMessageDialog(null, "Login berhasil ke peminjaman");
+                    peminjaman menu = new peminjaman();
                     menu.setVisible(true);
                     this.dispose();             
             }
@@ -202,7 +212,7 @@ public class Login_petugas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPasswordField txt_password;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }

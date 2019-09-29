@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -416,6 +416,7 @@ public class Manage_data extends javax.swing.JDialog {
             txt_jumlah.setText(rs.getString("jumlah"));
             cb_jenis.setSelectedItem(rs.getString("id_jenis"));
             txt_tgl.setText(rs.getString("tanggal_register"));
+            txt_kode.setText(rs.getString("kode_inventaris"));
             cb_ruang.setSelectedItem(rs.getString("id_ruang"));
             cb_petugas.setSelectedItem(rs.getString("id_petugas"));
              
@@ -435,6 +436,7 @@ public class Manage_data extends javax.swing.JDialog {
        String jumlah = txt_jumlah.getText();
        String jenis = cb_jenis.getSelectedItem().toString();
        String tanggal = txt_tgl.getText();
+       String kode = txt_kode.getText();       
        String ruang = cb_ruang.getSelectedItem().toString();
        String petugas = cb_petugas.getSelectedItem().toString();
 
@@ -443,13 +445,15 @@ public class Manage_data extends javax.swing.JDialog {
         
         try{
             Statement stmt = connection.createStatement();
-            String query = "UPDATE inventaris SET nama = '"+nama+"',"+"kondisi='"+Kondisi+"',"+"keterangan='"+keterangan+"',"+"jumlah='"+jumlah+"',"+"id_jenis = '"+jenis+"',"+"tanggal_register='"+tanggal+"',"+"id_ruang='"+ruang+"',"+"id_petugas = '"+petugas+"'WHERE id_inventaris = '"+id_inventaris+"'";
+            String query = "UPDATE inventaris SET nama = '"+nama+"',"+"kondisi='"+Kondisi+"',"+"keterangan='"+keterangan+"',"+"jumlah='"+jumlah+"',"+"id_jenis = '"+jenis+"',"+"tanggal_register='"+tanggal+"',"+"kode_inventaris='"+kode+"',"+"id_ruang='"+ruang+"',"+"id_petugas = '"+petugas+"'WHERE id_inventaris = '"+id_inventaris+"'";
             
 //            "UPDATE inventaris SET nama = '"+nama+","+"kondisi = '"+Kondisi+"',"+"keterangan = '"+keterangan+"',"+"jumlah = '"jumlah"',"+"jenis = '"+jenis+"',"+"tanggal_register ='"+tanggal+"',"+"ruang = '"+ruang+"',"+"petugas = '"+petugas+"' WHERE id_inventaris = '"+id_inventaris+"'";
             System.out.println(query);
             int berhasil = stmt.executeUpdate(query);
             if (berhasil == 1){
                 JOptionPane.showMessageDialog(null, "Data berhasil di ubah");
+                Data_inventaris form = new Data_inventaris();
+                form.viewInventaris();
             }
             else {
                 JOptionPane.showMessageDialog(null, "Data gagal di ubah");
@@ -460,6 +464,8 @@ public class Manage_data extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Terjadi Kesalahan pada query");
         }
     }
+   
+   
 
 
 

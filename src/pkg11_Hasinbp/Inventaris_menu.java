@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg11_hasinbp_xiirpl3;
+package pkg11_Hasinbp;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -134,6 +134,12 @@ public class Inventaris_menu extends javax.swing.JFrame {
 
         jPanel1.add(data_peminjaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 180, 190));
 
+        data_pengembalian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                data_pengembalianMouseClicked(evt);
+            }
+        });
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Data Pengembalian");
 
@@ -199,6 +205,12 @@ public class Inventaris_menu extends javax.swing.JFrame {
         );
 
         jPanel1.add(data_inventaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, -1, -1));
+
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Data Pegawai");
@@ -267,6 +279,20 @@ public class Inventaris_menu extends javax.swing.JFrame {
         inventaris.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_data_inventarisMouseClicked
+
+    private void data_pengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_data_pengembalianMouseClicked
+        // TODO add your handling code here:
+        Data_pengembalian pengembalian = new Data_pengembalian();
+        pengembalian.setVisible(true);
+        this.dispose();   
+    }//GEN-LAST:event_data_pengembalianMouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // TODO add your handling code here:
+        Data_pegawai pegawai = new Data_pegawai();
+        pegawai.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments
